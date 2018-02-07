@@ -1,0 +1,23 @@
+apiVersion: v1
+kind: Deployment
+metadata:
+  name: ${project.artifactId}
+spec:
+  template:
+    spec:
+      volumes:
+        - name: config
+          configMap:
+              name: ${project.artifactId}
+              items:
+              - key: openshift.json
+                path: openshift.json
+      containers:
+        - env:
+          - name: JAVA_OPTIONS
+            value: "-Dvertx.disableDnsResolver=true"
+          - name: JAVA_ARGS
+            value: "-conf /deployments/config/openshift.json"
+          volumeMounts:
+          - name: config
+            mountPath: /deployments/config

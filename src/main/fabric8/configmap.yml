@@ -1,0 +1,20 @@
+metadata:
+  name: ${project.artifactId}
+data:
+  openshift.json: |-
+    {
+      "http.port" : 8080,
+      "db": {
+        "url" : "jdbc:postgresql://catalog-database:5432/catalog",
+        "driver_class" : "org.postgresql.Driver",
+        "user" : "catalog",
+        "password" : "mysecretpassword",
+        "max_pool_size" : 30
+      },
+      "inventory": {
+        "hostname": "inventory.inventory.svc.cluster.local",
+        "remote-port": 8080,
+        "timeout": 3000
+      }
+    }
+    

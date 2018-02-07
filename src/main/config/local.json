@@ -1,0 +1,15 @@
+{
+	"http.port" : 8080,
+	"db": {
+		"url" : "jdbc:hsqldb:mem:test?shutdown=true",
+		"driver_class" : "org.hsqldb.jdbcDriver",
+		"user" : "sa",
+		"password" : "sa",
+		"max_pool_size" : 30
+	},
+	"inventory": {
+		"hostname":"inventory-inventory.192.168.64.10.xip.io",
+		"remote-port": 80,
+		"timeout": 3000
+	}
+}
